@@ -2,111 +2,116 @@ import streamlit as st
 
 st.set_page_config(page_title="Sthayee | Home", layout="wide")
 
-# Inject elegant CSS styling
+# Inject CSS for full-page background and elegant content
 st.markdown("""
     <style>
-    @import url('https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;600&family=Inter:wght@400;600&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
 
     html, body, [class*="css"] {
-        font-family: 'EB Garamond', serif;
-        background-color: #fdfdfd;
-        color: #1e1e1e;
+        font-family: 'Inter', sans-serif;
+        background: url('assets/images/background.png') no-repeat center center fixed;
+        background-size: cover;
     }
 
-    .hero {
-        padding: 80px 60px 40px;
+    .glass {
+        background: rgba(255, 255, 255, 0.85);
+        padding: 4rem 2rem;
+        border-radius: 20px;
+        margin: 3rem auto;
+        width: 90%;
+        max-width: 1100px;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .hero-title {
+        font-size: 3rem;
+        font-weight: 600;
+        text-align: center;
+        color: #222;
+        margin-bottom: 1rem;
+    }
+
+    .hero-tagline {
+        font-size: 1.2rem;
+        font-style: italic;
+        text-align: center;
+        max-width: 700px;
+        margin: 0 auto 2rem auto;
+        color: #444;
+    }
+
+    .section-title {
+        font-size: 1.7rem;
+        font-weight: 600;
+        margin-top: 2.5rem;
+        border-left: 5px solid #6a11cb;
+        padding-left: 15px;
+        color: #333;
+    }
+
+    .feature-card {
+        border-radius: 16px;
+        background-color: #ffffff;
+        box-shadow: 0 8px 18px rgba(0,0,0,0.06);
+        padding: 1.5rem;
+        transition: 0.3s;
         text-align: center;
     }
 
-    .hero h1 {
-        font-size: 3.5rem;
-        font-weight: 600;
-        margin-bottom: 0.3em;
+    .feature-card:hover {
+        transform: scale(1.03);
+        box-shadow: 0 12px 24px rgba(0,0,0,0.1);
     }
 
-    .hero p {
-        font-size: 1.2rem;
-        font-style: italic;
-        opacity: 0.8;
-        max-width: 800px;
-        margin: 0 auto;
-    }
-
-    .section {
-        padding: 30px 60px;
-        margin-top: 40px;
-    }
-
-    .feature-title {
-        font-size: 1.7rem;
-        font-weight: 600;
+    .feature-card img {
+        border-radius: 12px;
         margin-bottom: 10px;
-    }
-
-    .feature-text {
-        font-size: 1.05rem;
-        opacity: 0.9;
-    }
-
-    .subtle-box {
-        background-color: #f7f8fa;
-        padding: 30px;
-        border-radius: 12px;
-        margin-top: 30px;
-    }
-
-    .image-rounded {
-        border-radius: 12px;
-        margin-bottom: 15px;
+        height: 180px;
+        object-fit: cover;
     }
     </style>
 """, unsafe_allow_html=True)
 
-# Hero Section
-st.markdown('<div class="hero">', unsafe_allow_html=True)
-st.markdown("<h1>Welcome to Sthayee</h1>", unsafe_allow_html=True)
-st.markdown("""
-<p>
-A timeless journey through the echoes of Indian classical music, reimagined through elegant digital storytelling.
-</p>
-""", unsafe_allow_html=True)
-st.markdown("</div>", unsafe_allow_html=True)
+# Start of content in a glass-style overlay
+st.markdown('<div class="glass">', unsafe_allow_html=True)
 
+# Hero title + tagline
+st.markdown('<div class="hero-title">Welcome to Sthayee</div>', unsafe_allow_html=True)
+st.markdown('<div class="hero-tagline">A minimalist journey through the timeless soul of Indian classical music</div>', unsafe_allow_html=True)
+
+# Hero Image
 st.image("assets/images/hero.png", use_container_width=True)
 
-# Intro Section
-st.markdown('<div class="section">', unsafe_allow_html=True)
-st.markdown('<div class="feature-title">Our Vision</div>', unsafe_allow_html=True)
-st.markdown("""
-<div class="feature-text">
-To preserve and promote the essence of Indian classical music through an immersive, minimalist digital experience that feels timeless and powerful.
-</div>
-""", unsafe_allow_html=True)
-st.markdown('</div>', unsafe_allow_html=True)
+# Section: Vision
+st.markdown('<div class="section-title">Our Vision</div>', unsafe_allow_html=True)
+st.write("""
+To create a modern, immersive experience that bridges the sacred essence of Indian classical music with modern digital design. Sthayee is not just a platform — it's a movement to preserve emotion, rhythm, and cultural elegance.
+""")
 
-# Features Section
-st.markdown('<div class="section subtle-box">', unsafe_allow_html=True)
-st.markdown('<div class="feature-title">Explore the Experience</div>', unsafe_allow_html=True)
+# Section: Explore Features
+st.markdown('<div class="section-title">Explore the Experience</div>', unsafe_allow_html=True)
 
 cols = st.columns(3)
 with cols[0]:
+    st.markdown('<div class="feature-card">', unsafe_allow_html=True)
     st.image("assets/images/music_store.png", use_container_width=True)
-    st.markdown("**🎧 Music Player**")
-    st.caption("Listen to handpicked tracks from classical archives.")
+    st.subheader("🎧 Music Player")
+    st.caption("Handpicked classical tracks from heritage collections.")
+    st.markdown('</div>', unsafe_allow_html=True)
 
 with cols[1]:
+    st.markdown('<div class="feature-card">', unsafe_allow_html=True)
     st.image("assets/images/tabla.png", use_container_width=True)
-    st.markdown("**🎼 Instruments**")
-    st.caption("Discover the soul of Indian rhythm through visuals.")
+    st.subheader("🎼 Instruments")
+    st.caption("Discover and explore Indian instruments visually.")
+    st.markdown('</div>', unsafe_allow_html=True)
 
 with cols[2]:
+    st.markdown('<div class="feature-card">', unsafe_allow_html=True)
     st.image("assets/images/blog2.png", use_container_width=True)
-    st.markdown("**🖼️ Gallery**")
-    st.caption("Explore the rich visuals and stories of tradition.")
-st.markdown('</div>', unsafe_allow_html=True)
+    st.subheader("🖼️ Gallery")
+    st.caption("A visual diary of tradition, rhythm, and storytelling.")
+    st.markdown('</div>', unsafe_allow_html=True)
 
-# Final CTA
-st.markdown('<div class="section">', unsafe_allow_html=True)
-st.markdown("<h2 style='text-align: center; margin-top: 50px;'>Begin your musical journey ➤</h2>", unsafe_allow_html=True)
-st.markdown("<p style='text-align: center; font-size: 1rem; opacity: 0.7;'>Use the sidebar to navigate and experience Sthayee.</p>", unsafe_allow_html=True)
+# End of glass container
 st.markdown('</div>', unsafe_allow_html=True)

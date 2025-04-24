@@ -6,7 +6,8 @@ st.set_page_config(page_title="Sthayee App", layout="wide")
 
 # Sidebar Navigation
 st.sidebar.title("🎵 Sthayee Navigation")
-selection = st.sidebar.radio("Go to", ["Home", "Music Player", "Instruments", "Portfolio"])
+selection = st.sidebar.radio("Go to", ["Home", "Music Player", "Instruments", "Portfolio", "Music Store"])
+
 
 # Page Logic
 if selection == "Home":

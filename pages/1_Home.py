@@ -41,7 +41,9 @@ st.markdown('<div class="hero">', unsafe_allow_html=True)
 st.markdown("<h1>🎵 Welcome to Sthayee</h1>", unsafe_allow_html=True)
 st.markdown("<p>An immersive blend of Indian Classical Music & Modern Tech</p>", unsafe_allow_html=True)
 st.markdown("</div>", unsafe_allow_html=True)
-st.image("assets/images/hero.png", use_column_width=True)
+
+# Hero Image
+st.image("assets/images/hero.png", use_container_width=True)
 
 # 🔹 About Section
 st.markdown('<div class="section-title">About Sthayee</div>', unsafe_allow_html=True)
@@ -52,4 +54,14 @@ into a full-featured app experience with audio, visuals, and musical learning to
 """)
 
 # 🔹 Feature Previews
-st.markdown('<div class="section-title">Explore the App</
+st.markdown('<div class="section-title">Explore the App</div>', unsafe_allow_html=True)
+
+cols = st.columns(3)
+with cols[0]:
+    st.image("assets/images/music_store.png", caption="🎧 Music Player", use_container_width=True)
+with cols[1]:
+    st.image("assets/images/tabla.png", caption="🎼 Instruments", use_container_width=True)
+with cols[2]:
+    st.image("assets/images/blog2.png", caption="🖼️ Gallery", use_container_width=True)
+
+st.success("Navigate using the sidebar to explore each feature!")

@@ -37,7 +37,8 @@ image_path = "assets/images/music_store.png"
 if os.path.exists(audio_path):
     st.markdown('<div class="music-card">', unsafe_allow_html=True)
 
-    st.image(image_path, use_container_width=False)
+    st.image(image_path, use_container_width=True)  # 🔁 FIXED HERE
+
     st.markdown("<h3>Now Playing: Ilahi</h3>", unsafe_allow_html=True)
 
     audio_bytes = open(audio_path, 'rb').read()

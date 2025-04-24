@@ -29,3 +29,5 @@ elif selection == "Instruments":
     exec(open("pages/3_Instruments.py").read())
 elif selection == "Portfolio":
     exec(open("pages/4_Portfolio.py").read())
+elif selection == "Music Store":
+    exec(open("pages/5_Music_Store.py").read())

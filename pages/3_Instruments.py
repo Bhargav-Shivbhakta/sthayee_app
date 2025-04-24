@@ -1,21 +1,42 @@
 import streamlit as st
-from PIL import Image
 
 st.set_page_config(page_title="Sthayee | Instruments", layout="wide")
 st.title("🎻 Explore Classical Instruments")
 
-st.write("Here are some iconic instruments that shape Indian classical music:")
+# Inject custom CSS
+st.markdown("""
+    <style>
+    .section-title {
+        font-size: 2rem;
+        font-weight: bold;
+        margin: 30px 0 15px;
+        border-left: 5px solid #6a11cb;
+        padding-left: 15px;
+    }
+    .instrument-img {
+        border-radius: 12px;
+        box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+        transition: transform 0.3s ease;
+        margin-bottom: 20px;
+    }
+    .instrument-img:hover {
+        transform: scale(1.03);
+    }
+    </style>
+""", unsafe_allow_html=True)
 
-# Instrument List (Image filename, Display name)
+st.markdown('<div class="section-title">Featured Instruments</div>', unsafe_allow_html=True)
+
+# Instruments: (Image filename, Display name)
 instruments = [
     ("tabla.png", "Tabla"),
     ("tanpura_1.png", "Tanpura"),
     ("veena.png", "Veena"),
     ("taal_library.png", "Taal"),
-    ("raga_library.png", "Raga Visualization"),
+    ("raga_library.png", "Raga Visualizer")
 ]
 
 cols = st.columns(3)
-for index, (img_file, label) in enumerate(instruments):
-    with cols[index % 3]:
-        st.image(f"assets/images/{img_file}", caption=label, use_column_width=True)
+for i, (img, name) in enumerate(instruments):
+    with cols[i % 3]:
+        st.image(f"assets/images/{img}", caption=name, use_container_width=True, output_format="auto")
